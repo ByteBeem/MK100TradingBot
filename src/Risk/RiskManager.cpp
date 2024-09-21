@@ -1,4 +1,4 @@
-#include "include/RiskManager.hpp"
+#include "RiskManager.hpp"
 
 RiskManager::RiskManager(double maxRisk, double accountBalance) 
     : maxRisk(maxRisk), accountBalance(accountBalance) {}

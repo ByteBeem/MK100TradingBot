@@ -3,7 +3,7 @@ cmake_minimum_required(VERSION 3.10)
 
 project(MK100TradingBot)
 
-d
+
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED True)
 
@@ -20,6 +20,7 @@ add_executable(MK100TradingBot
     src/Risk/RiskManager.cpp
     src/Signals/SignalGenerator.cpp
     src/Utils/Utils.cpp
+    src/Logger/Logger.cpp
 )
 
 

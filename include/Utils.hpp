@@ -3,15 +3,23 @@
 
 #include <vector>
 #include <string>
-#include <fstream>
+#include <stdexcept>
+#include <numeric>
+#include "Config.hpp" 
 
-namespace Utils {
-    double calculateMovingAverage(const std::vector<double>& data, int period);
-}
+Config loadConfig(const std::string& configPath);
+
+class Utils {
+public:
+    static double calculateMovingAverage(const std::vector<double>& data, int period);
+};
 
 class Logger {
 public:
     static void log(const std::string& message);
+
 };
 
-#endif
+
+
+#endif 

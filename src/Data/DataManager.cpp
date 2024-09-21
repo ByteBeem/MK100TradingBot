@@ -1,7 +1,7 @@
-#include "include/DataManager.hpp"
+#include "DataManager.hpp"
 
-DataManager::DataManager(APIHandler& apiHandler) : historicalData(apiHandler) {}
+DataManager::DataManager(APIHandler& apiHandler) : apiHandler_(apiHandler) {}
 
 std::vector<double> DataManager::getHistoricalData(const std::string& symbol, const std::string& timeframe) {
-    return historicalData.fetchHistoricalPrices(symbol, timeframe);
+    return apiHandler_.getHistoricalData(symbol, timeframe); 
 }

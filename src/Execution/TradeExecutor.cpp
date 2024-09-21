@@ -1,20 +1,12 @@
-#include "include/TradeExecutor.hpp"
-#include <stdexcept>
+#include "TradeExecutor.hpp"
 
 TradeExecutor::TradeExecutor(APIHandler& apiHandler) : apiHandler(apiHandler) {}
 
-bool TradeExecutor::executeTrade(const std::string& signal, double lotSize, const std::string& symbol) {
-    try {
-        if (signal == "BUY") {
-            apiHandler.placeOrder(symbol, "buy", lotSize);
-        } else if (signal == "SELL") {
-            apiHandler.placeOrder(symbol, "sell", lotSize);
-        } else {
-            throw std::invalid_argument("Invalid trade signal: " + signal);
-        }
-    } catch (const std::exception& e) {
-        std::cerr << "Trade execution failed: " << e.what() << std::endl;
+bool TradeExecutor::executeTrade(const std::string& action, double lotSize, const std::string& symbol) {
+    if (action != "BUY" && action != "SELL") {
+        std::cerr << "Invalid action. Trade action must be either 'BUY' or 'SELL'." << std::endl;
         return false;
     }
-    return true;
+   
+    return true; 
 }
